@@ -1,0 +1,343 @@
+# Default values for adapters.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+nomics:
+  name: "nomics"
+  replicaCount: 1
+
+  image:
+    repository: public.ecr.aws/chainlink/adapters/nomics-adapter
+    pullPolicy: Always
+    tag: latest
+
+  config:
+    ea_port: 1111
+    api_key: "" # TODO: add to config through Terraform
+    timeout: 30000
+    cache_enabled: false
+    rate_limit_enabled: true
+    warmup_enabled: true
+    rate_limit_api_provider: 'nomics'
+    rate_limit_api_tier: "https://api.nomics.com/v1" # TODO: add to config through Terraform
+    request_coalescing_enabled: true
+    request_coalescing_interval: 100
+    request_coalescing_interval_max: 1000
+    request_coalescing_interval_coefficient: 2
+    request_coalescing_entropy_max: 0
+    warmup_unhealthy_treshold: 3
+    warmup_subscription_ttl: 3600000
+    log_level: "info"
+    debug: false
+    api_verbose: false
+    experimental_metrics_enabled: true
+    metrics_name: nomics
+    retry: 1
+
+  service:
+    port: 1111
+
+
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # Annotations to add to the service account
+    annotations: {}
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9080"
+
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+cryptocompare:
+  name: "cryptocompare"
+  replicaCount: 1
+
+  image:
+    repository: public.ecr.aws/chainlink/adapters/cryptocompare-adapter
+    pullPolicy: Always
+    tag: latest
+
+  config:
+    ea_port: 1114
+    api_key: "" # TODO: add to config through Terraform
+    timeout: 30000
+    cache_enabled: false
+    rate_limit_enabled: true
+    warmup_enabled: true
+    rate_limit_api_provider: 'cryptocompare'
+    rate_limit_api_tier: "https://min-api.cryptocompare.com/data/price" # TODO: add to config through Terraform
+    request_coalescing_enabled: true
+    request_coalescing_interval: 100
+    request_coalescing_interval_max: 1000
+    request_coalescing_interval_coefficient: 2
+    request_coalescing_entropy_max: 0
+    warmup_unhealthy_treshold: 3
+    warmup_subscription_ttl: 3600000
+    log_level: "info"
+    debug: false
+    api_verbose: false
+    experimental_metrics_enabled: true
+    metrics_name: cryptocompare
+    retry: 1
+
+  service:
+    port: 1114
+
+
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # Annotations to add to the service account
+    annotations: {}
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9080"
+    prometheus.io/metrics-prefix: "adapters-pods"
+
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+tiingo:
+  name: "tiingo"
+  replicaCount: 1
+
+  image:
+    repository: public.ecr.aws/chainlink/adapters/tiingo-adapter
+    pullPolicy: Always
+    tag: latest
+
+  config:
+    ea_port: 1134
+    api_key: "" # TODO: add to config through Terraform
+    timeout: 30000
+    cache_enabled: false
+    rate_limit_enabled: true
+    warmup_enabled: true
+    rate_limit_api_provider: 'tiingo'
+    rate_limit_api_tier: "https://api.tiingo.com/api/test" # TODO: add to config through Terraform
+    request_coalescing_enabled: true
+    request_coalescing_interval: 100
+    request_coalescing_interval_max: 1000
+    request_coalescing_interval_coefficient: 2
+    request_coalescing_entropy_max: 0
+    warmup_unhealthy_treshold: 3
+    warmup_subscription_ttl: 3600000
+    log_level: "info"
+    debug: false
+    api_verbose: false
+    experimental_metrics_enabled: true
+    metrics_name: tiingo
+    retry: 1
+
+  service:
+    port: 1134
+
+
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # Annotations to add to the service account
+    annotations: {}
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9080"
+
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+coingecko:
+  name: "coingecko"
+  replicaCount: 1
+
+  image:
+    repository: public.ecr.aws/chainlink/adapters/coingecko-adapter
+    pullPolicy: Always
+    tag: latest
+
+  config:
+    ea_port: 1113
+    api_key: "" # TODO: add to config through Terraform
+    timeout: 30000
+    cache_enabled: false
+    rate_limit_enabled: true
+    warmup_enabled: true
+    rate_limit_api_provider: 'coingecko'
+    rate_limit_api_tier: "https://api.coingecko.com/api/v3/" # TODO: add to config through Terraform
+    request_coalescing_enabled: true
+    request_coalescing_interval: 100
+    request_coalescing_interval_max: 1000
+    request_coalescing_interval_coefficient: 2
+    request_coalescing_entropy_max: 0
+    warmup_unhealthy_treshold: 3
+    warmup_subscription_ttl: 3600000
+    log_level: "info"
+    debug: false
+    api_verbose: false
+    experimental_metrics_enabled: true
+    metrics_name: coingecko
+    retry: 1
+
+  service:
+    port: 1113
+
+
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # Annotations to add to the service account
+    annotations: {}
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9080"
+
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+  #   memory: 128Mi
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+coinmarketcap:
+  name: "coinmarketcap"
+  replicaCount: 1
+
+  image:
+    repository: public.ecr.aws/chainlink/adapters/coinmarketcap-adapter
+    pullPolicy: Always
+    tag: latest
+
+  config:
+    ea_port: 1115
+    api_key: "" # TODO: add to config through Terraform
+    timeout: 30000
+    cache_enabled: false
+    rate_limit_enabled: true
+    warmup_enabled: true
+    rate_limit_api_provider: 'coinmarketcap'
+    rate_limit_api_tier: "https://api.coinmarketcap.com/api/test" # TODO: add to config through Terraform
+    request_coalescing_enabled: true
+    request_coalescing_interval: 100
+    request_coalescing_interval_max: 1000
+    request_coalescing_interval_coefficient: 2
+    request_coalescing_entropy_max: 0
+    warmup_unhealthy_treshold: 3
+    warmup_subscription_ttl: 3600000
+    log_level: "info"
+    debug: false
+    api_verbose: false
+    experimental_metrics_enabled: true
+    metrics_name: coinmarketcap
+    retry: 1
+
+  service:
+    port: 1115
+
+
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # Annotations to add to the service account
+    annotations: {}
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9080"
+
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
