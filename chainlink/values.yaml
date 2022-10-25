@@ -10,6 +10,7 @@ image:
   pullPolicy: Always
 
 config:
+  db_url: ""
   root: "/chainlink"
   log_level: "debug"
   eth_chain_id: "4"
