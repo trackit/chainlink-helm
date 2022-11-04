@@ -2,9 +2,9 @@
 
 ## Chainlink Helm Chart
 
-Required Values:
+### Required Values
 
-The required values are the Chainlink environment variables described in their [documentation](https://docs.chain.link/docs/configuration-variables/).
+The required values are mostly the Chainlink environment variables described in their [documentation](https://docs.chain.link/docs/configuration-variables/).
 
 | Name                         | Chainlink Environment Variable | Type   | Required | Default Value |
 |------------------------------|--------------------------------|--------|----------|---------------|
