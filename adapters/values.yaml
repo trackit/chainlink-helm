@@ -258,3 +258,111 @@ coinmarketcap:
   nodeSelector: {}
   tolerations: []
   affinity: {}
+
+jpegd:
+  name: "jpegd"
+  replicaCount: 1
+
+  image:
+    repository: public.ecr.aws/chainlink/adapters/jpegd-adapter
+    pullPolicy: Always
+    tag: 2.1.16
+
+  config:
+    ea_port: 1171
+    api_key: "" # TODO: add to config through Terraform
+    timeout: 30000
+    cache_enabled: false
+    rate_limit_enabled: true
+    warmup_enabled: true
+    rate_limit_api_provider: 'jpegd'
+    rate_limit_api_tier: "https://jpegapi.com" # TODO: add to config through Terraform
+    request_coalescing_enabled: true
+    request_coalescing_interval: 100
+    request_coalescing_interval_max: 1000
+    request_coalescing_interval_coefficient: 2
+    request_coalescing_entropy_max: 0
+    warmup_unhealthy_treshold: 3
+    warmup_subscription_ttl: 3600000
+    log_level: "info"
+    debug: false
+    api_verbose: false
+    experimental_metrics_enabled: true
+    metrics_name: jpegd
+    retry: 1
+
+  service:
+    port: 1171
+
+
+  serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9080"
+
+  resources: {}
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+bea:
+  name: "bea"
+  replicaCount: 1
+
+  image:
+    repository: public.ecr.aws/chainlink/adapters/bea-adapter
+    pullPolicy: Always
+    tag: 1.3.19
+
+  config:
+    ea_port: 2232
+    api_key: ""
+    timeout: 30000
+    cache_enabled: false
+    rate_limit_enabled: true
+    warmup_enabled: true
+    rate_limit_api_provider: 'bea'
+    rate_limit_api_tier: "https://apps.bea.gov"
+    request_coalescing_enabled: true
+    request_coalescing_interval: 100
+    request_coalescing_interval_max: 1000
+    request_coalescing_interval_coefficient: 2
+    request_coalescing_entropy_max: 0
+    warmup_unhealthy_treshold: 3
+    warmup_subscription_ttl: 3600000
+    log_level: "info"
+    debug: false
+    api_verbose: false
+    experimental_metrics_enabled: true
+    metrics_name: bea
+    retry: 1
+
+  service:
+    port: 2232
+
+
+  serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9080"
+
+  resources: {}
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
