@@ -105,3 +105,21 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/name: {{ include "adapters.coingecko.fullname" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{- define "adapters.jpegd.fullname" -}}
+{{ .Values.jpegd.name | quote }}
+{{- end }}
+
+{{- define "adapters.jpegd.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "adapters.jpegd.fullname" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{- define "adapters.bea.fullname" -}}
+{{ .Values.bea.name | quote }}
+{{- end }}
+
+{{- define "adapters.bea.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "adapters.bea.fullname" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
