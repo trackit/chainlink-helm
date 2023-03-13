@@ -9,7 +9,7 @@ nomics:
 
   config:
     ea_port: 1111
-    api_key: ""
+    api_key: "fake"
     timeout: 30000
     cache_enabled: false
     rate_limit_enabled: true
@@ -62,7 +62,7 @@ cryptocompare:
 
   config:
     ea_port: 1114
-    api_key: ""
+    api_key: "fake"
     timeout: 30000
     cache_enabled: false
     rate_limit_enabled: true
@@ -117,7 +117,7 @@ tiingo:
 
   config:
     ea_port: 1134
-    api_key: ""
+    api_key: "fake"
     timeout: 30000
     cache_enabled: false
     rate_limit_enabled: true
@@ -168,7 +168,7 @@ coingecko:
 
   config:
     ea_port: 1113
-    api_key: ""
+    api_key: "fake"
     timeout: 30000
     cache_enabled: false
     rate_limit_enabled: true
@@ -219,7 +219,7 @@ coinmarketcap:
 
   config:
     ea_port: 1115
-    api_key: ""
+    api_key: "fake"
     timeout: 30000
     cache_enabled: false
     rate_limit_enabled: true
@@ -270,13 +270,13 @@ jpegd:
 
   config:
     ea_port: 1171
-    api_key: "" # TODO: add to config through Terraform
+    api_key: "fake"
     timeout: 30000
     cache_enabled: false
     rate_limit_enabled: true
     warmup_enabled: true
     rate_limit_api_provider: 'jpegd'
-    rate_limit_api_tier: "https://jpegapi.com" # TODO: add to config through Terraform
+    rate_limit_api_tier: "https://jpegapi.com"
     request_coalescing_enabled: true
     request_coalescing_interval: 100
     request_coalescing_interval_max: 1000
@@ -324,7 +324,7 @@ bea:
 
   config:
     ea_port: 2232
-    api_key: ""
+    api_key: "fake"
     timeout: 30000
     cache_enabled: false
     rate_limit_enabled: true

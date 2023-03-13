@@ -4,9 +4,6 @@ grafana.ini:
     host: "smtp-relay.gmail.com:587"
     from_address: "no-reply@example.com"
 
-serviceAccount:
-  annotations:
-    eks.amazonaws.com/role-arn: "${grafana-role-arn}"
 
 datasources:
   datasources.yaml:
@@ -60,9 +57,6 @@ dashboards:
     external-adapter:
       json: |
         ${external-adapter}
-    logs:
-      json: |
-        ${logs}
 
 #  fields @timestamp, @message
 #  | filter @logStream like "chainlink-"
